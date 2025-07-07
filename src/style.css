@@ -1,0 +1,48 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --dkClr: #181818;
+  --liClr: whitesmoke;
+  --accClr: #0D0D35;
+
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0 ;
+}
+
+html, body{
+  height: 100%;
+}
+
+body{
+  background-image: url(/public/assets/gradienteCinza.jpg);
+  background-size: cover;
+  color: var(--liClr);
+  display: flex;
+  flex-direction: column;
+
+}
+
+header,footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+main{
+  flex: 1;
+  display: flex;
+}
+
+#telaDoJogo{
+  border: 10px solid black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  z-index: 1;
+  transform: translate(-50%, -50%);
+}
