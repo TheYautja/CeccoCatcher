@@ -18,7 +18,7 @@ const hitboxCecco = {
 
 
 //gravidade
-const speedDown = 400
+const speedDown = 600
 
 
 
@@ -31,6 +31,8 @@ class gameScene extends Phaser.Scene{
     this.target
     this.points=0
     this.textPods
+    this.textParceria
+    this.podQueimado
   }
 
 
@@ -39,42 +41,51 @@ class gameScene extends Phaser.Scene{
     this.load.image("fundo","/assets/Guarita.jpg")
     this.load.image("player","/assets/bustoDoCecco.png");
     this.load.image("pod","/assets/podpequeno.png");
+    this.load.image("podQueimado","/assets/apple.png");
   }
   create(){
+
+//fundo
   this.add.image(0,0,"fundo").setOrigin(0,0);
 
-
+//player
   this.player = this.physics.add.image(0,tamanho.height-100,"player").setOrigin(0,0);
   /* this.player.setSize(hitboxCecco.width, hitboxCecco.height);
   this.player.setOffset(); */
-
   this.player.setImmovable(true);
   this.player.body.allowGravity = false
   this.player.setCollideWorldBounds(true);
-  
   this.player.setSize(this.player.width-this.player.width/4, this.player.height/6).setOffset(
   this.player.width/10, this.player.height - this.player.height/10);
 
 
+//pod 
   this.target = this.physics.add.image(100, 100, "pod").setOrigin(0, 0);
   this.target.setSize(hitboxPod.width, hitboxPod.height);
   this.target.setOffset(0, 0);
-
-  player.setDebug(false);
-  target.setDebug(false);
-
   this.target.setMaxVelocity(speedDown);
 
-  this.physics.add.overlap(this.target, this.player,this.targetHit, null, this)
 
+
+//pod queimado
+  this.podQueimado = this.physics.add.image(100, 100, "podQueimado").setOrigin(0, 0);
+  this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
+  this.podQueimado.setOffset(0, 0);
+
+
+  this.physics.add.overlap(this.target, this.player,this.targetHit, null, this)
   this.cursor = this.input.keyboard.createCursorKeys();
+
+
+  this.textParceria = this.add.text(tamanho.width - 1000, 10, "Ajude o Cecconelo a Pegar 30 Pods!!",{
+    font: "25px Arial",
+    fill: "#000000",
+  })
 
   this.textPods = this.add.text(tamanho.width - 120, 10, "Pontos:0" , {
     font: "25px Arial",
     fill: "#000000",
   });
-
-
 
   }
   update(){
@@ -93,12 +104,19 @@ if (this.target.y >= tamanho.height){
     }else {
       this.player.setVelocityX(0)
     }
+
+
+    if (this.points > 30){
+      this.textParceria.setText(`isso aí magrão, parceria`)
+      this.points = 0;
+    };
+
   }
 
 getRandomX(){
   return Math.floor(Math.random()* tamanho.width);
 };
-z
+
 
 targetHit (){
   this.target.setY();
