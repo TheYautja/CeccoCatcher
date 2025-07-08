@@ -62,7 +62,7 @@ class gameScene extends Phaser.Scene{
   this.target = this.physics.add.image(100, 100, "pod").setOrigin(0, 0);
   this.target.setSize(hitboxPod.width, hitboxPod.height);
   this.target.setOffset(0, 0);
-  this.target.setVelocity(0,speedDown);
+  this.target.setMaxVelocity(speedDown);
   this.physics.add.overlap(this.target, this.player,this.targetHit, null, this)
 
 
@@ -71,7 +71,7 @@ class gameScene extends Phaser.Scene{
   //this.podQueimado = this.physics.add.image(100, 100, "podQueimado").setOrigin(0, 0);
   //this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
   //this.podQueimado.setOffset(0, 0);
-  //this.podQueimado.setVelocity(0,speedDown);
+  //this.podQueimado.setMaxVelocity(speedDown);
   //this.physics.add.overlap(this.podQueimado, this.player, this.perder, null, this)
 
 
