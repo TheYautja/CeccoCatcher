@@ -120,6 +120,10 @@ getRandomX(){
   return Math.floor(Math.random()* tamanho.width);
 };
 
+getRandommorte(){
+  return Math.floor(Math.random()* tamanho.width);
+};
+
 
 targetHit (){
   this.target.setY(0);
@@ -130,7 +134,7 @@ targetHit (){
 
 perder (){
   this.podQueimado.setY(0);
-  this.target.setX();
+  this.target.setX(this.getRandommorte());
   this.points (0);
   this.textParceria.setText(`perdeu bixo`)
 }
