@@ -46,3 +46,12 @@ main{
   z-index: 1;
   transform: translate(-50%, -50%);
 }
+
+#placa{
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: fit-content;
+  border: 1px solid red;
+  
+}
