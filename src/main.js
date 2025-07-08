@@ -55,15 +55,14 @@ class gameScene extends Phaser.Scene{
   this.player.setImmovable(true);
   this.player.body.allowGravity = false
   this.player.setCollideWorldBounds(true);
-  this.player.setSize(this.player.width-this.player.width/4, this.player.height/6).setOffset(
-  this.player.width/10, this.player.height - this.player.height/10);
+  this.player.setSize(hitboxCecco.width, hitboxCecco.height).setOffset(0,0);
 
 
 //pod 
   this.target = this.physics.add.image(100, 100, "pod").setOrigin(0, 0);
   this.target.setSize(hitboxPod.width, hitboxPod.height);
   this.target.setOffset(0, 0);
-  this.target.setMaxVelocity(speedDown);
+  this.target.setVelocity(0,speedDown);
   this.physics.add.overlap(this.target, this.player,this.targetHit, null, this)
 
 
@@ -72,7 +71,7 @@ class gameScene extends Phaser.Scene{
   this.podQueimado = this.physics.add.image(100, 100, "podQueimado").setOrigin(0, 0);
   this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
   this.podQueimado.setOffset(0, 0);
-  this.podQueimado.setMaxVelocity(speedDown);
+  this.podQueimado.setVelocity(0,speedDown);
   this.physics.add.overlap(this.podQueimado, this.player, this.perder, null, this)
 
 
@@ -120,9 +119,7 @@ getRandomX(){
   return Math.floor(Math.random()* tamanho.width);
 };
 
-getRandommorte(){
-  return Math.floor(Math.random()* tamanho.width);
-};
+
 
 
 targetHit (){
@@ -134,7 +131,7 @@ targetHit (){
 
 perder (){
   this.podQueimado.setY(0);
-  this.target.setX(this.getRandommorte());
+  this.target.setX(this.getRandomX());
   this.points=0;
   this.textParceria.setText(`perdeu bixo`)
 }
