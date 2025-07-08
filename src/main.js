@@ -1,4 +1,4 @@
-import './style.css'
+erimport './style.css'
 import Phaser, { CANVAS, Physics, Scene } from 'phaser'
 
 const tamanho = {
@@ -73,7 +73,7 @@ class gameScene extends Phaser.Scene{
   this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
   this.podQueimado.setOffset(0, 0);
   this.podQueimado.setMaxVelocity(speedDown);
-  this.physics.add.overlap(this.podQueimado, this.player, this.targetHit, null, this)
+  this.physics.add.overlap(this.podQueimado, this.player, this.perder, null, this)
 
 
 
