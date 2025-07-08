@@ -95,7 +95,7 @@ if (this.target.y >= tamanho.height){
 getRandomX(){
   return Math.floor(Math.random()* tamanho.width);
 };
-
+z
 
 targetHit (){
   this.target.setY();
@@ -116,7 +116,7 @@ const config = {
   physics:{
     default:'arcade',
       arcade:{gravity:{y:speedDown},
-    debug:true}
+    debug:false}
   },
   scene:[gameScene]
 }
