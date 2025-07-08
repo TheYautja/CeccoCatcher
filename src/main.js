@@ -60,6 +60,9 @@ class gameScene extends Phaser.Scene{
   this.target.setSize(hitboxPod.width, hitboxPod.height);
   this.target.setOffset(0, 0);
 
+  this.player.setDebug(false);
+  this.target.setDebug(false);
+
   this.target.setMaxVelocity(speedDown);
 
   this.physics.add.overlap(this.target, this.player,this.targetHit, null, this)
