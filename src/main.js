@@ -68,11 +68,11 @@ class gameScene extends Phaser.Scene{
 
 
 //pod queimado
-  this.podQueimado = this.physics.add.image(100, 100, "podQueimado").setOrigin(0, 0);
-  this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
-  this.podQueimado.setOffset(0, 0);
-  this.podQueimado.setVelocity(0,speedDown);
-  this.physics.add.overlap(this.podQueimado, this.player, this.perder, null, this)
+  //this.podQueimado = this.physics.add.image(100, 100, "podQueimado").setOrigin(0, 0);
+  //this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
+  //this.podQueimado.setOffset(0, 0);
+  //this.podQueimado.setVelocity(0,speedDown);
+  //this.physics.add.overlap(this.podQueimado, this.player, this.perder, null, this)
 
 
 
