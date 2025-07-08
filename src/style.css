@@ -51,11 +51,12 @@ main{
   display: flex;
   flex-direction: row;
   width: 70%;
-  height: 10%;
+  height: fit-content;
   border: 1px solid red;
   justify-content: center;
   align-items: center;
   font-size: 50px;
-
+  background-color: darkslategrey;
+  
 
 }
