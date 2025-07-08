@@ -135,7 +135,7 @@ targetHit (){
 perder (){
   this.podQueimado.setY(0);
   this.target.setX(this.getRandommorte());
-  this.points (0);
+  this.points=0;
   this.textParceria.setText(`perdeu bixo`)
 }
 
