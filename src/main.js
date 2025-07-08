@@ -60,8 +60,8 @@ class gameScene extends Phaser.Scene{
   this.target.setSize(hitboxPod.width, hitboxPod.height);
   this.target.setOffset(0, 0);
 
-  this.player.setDebug(false);
-  this.target.setDebug(false);
+  player.setDebug(false);
+  target.setDebug(false);
 
   this.target.setMaxVelocity(speedDown);
 
