@@ -52,11 +52,10 @@ main{
   flex-direction: row;
   width: 70%;
   height: fit-content;
-  border: 1px solid red;
-  justify-content: center;
+  justify-content: top;
   align-items: center;
   font-size: 50px;
-  background-color: darkslategrey;
+  background-color: rgb(0, 0, 0);
   
 
 }
