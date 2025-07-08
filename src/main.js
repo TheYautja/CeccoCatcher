@@ -55,8 +55,8 @@ class gameScene extends Phaser.Scene{
   this.player.setImmovable(true);
   this.player.body.allowGravity = false
   this.player.setCollideWorldBounds(true);
-  this.player.setSize(hitboxCecco.width, hitboxCecco.height).setOffset(0,0);
-
+  this.player.setSize(this.player.width - this.player.width / 4, this.player.height / 6).setOffset(
+  this.player.width / 10, this.player.height - this.player.height / 10);
 
 //pod 
   this.target = this.physics.add.image(100, 100, "pod").setOrigin(0, 0);
