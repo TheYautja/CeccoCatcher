@@ -122,10 +122,17 @@ getRandomX(){
 
 
 targetHit (){
-  this.target.setY();
+  this.target.setY(0);
   this.target.setX(this.getRandomX());
   this.points++;
   this.textPods.setText(`Pods: ${this.points}`)
+}
+
+perder (){
+  this.podQueimado.setY(0);
+  this.target.setX();
+  this.points (0);
+  this.textParceria.setText(`perdeu bixo`)
 }
 
 }
