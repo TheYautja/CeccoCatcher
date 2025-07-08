@@ -1,4 +1,4 @@
-erimport './style.css'
+import './style.css'
 import Phaser, { CANVAS, Physics, Scene } from 'phaser'
 
 const tamanho = {
