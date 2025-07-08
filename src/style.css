@@ -53,5 +53,7 @@ main{
   width: 70%;
   height: fit-content;
   border: 1px solid red;
-  
+  justify-content: center;
+  align-items: center;
+
 }
