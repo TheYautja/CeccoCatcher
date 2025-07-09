@@ -41,7 +41,7 @@ class gameScene extends Phaser.Scene{
     this.load.image("fundo","/assets/Guarita.jpg")
     this.load.image("player","/assets/bustoDoCecco.png");
     this.load.image("pod","/assets/podpequeno.png");
-    this.load.image("podQueimado","/assets/porco.jpg");
+    this.load.image("podQueimado","/assets/porco2.jpg");
   }
   create(){
 
