@@ -33,6 +33,7 @@ class gameScene extends Phaser.Scene{
     this.textPods
     this.textParceria
     this.podQueimado
+    this.magrao
   }
 
 
@@ -43,6 +44,11 @@ class gameScene extends Phaser.Scene{
     this.load.image("pod","/assets/podpequeno.png");
     this.load.image("podQueimado","/assets/porco.jpg");
   }
+
+
+
+
+
   create(){
 
 //fundo
@@ -76,6 +82,13 @@ class gameScene extends Phaser.Scene{
 
 
 
+  //texto magrão
+  this.magrao=this.add.text(100,100, "teste",{
+    font: "25px Arial",
+    fill: "#000000",
+  })
+
+
   this.cursor = this.input.keyboard.createCursorKeys();
 
 
@@ -90,6 +103,10 @@ class gameScene extends Phaser.Scene{
   });
 
   }
+
+
+
+
   update(){
 
 if (this.target.y >= tamanho.height){
@@ -102,6 +119,10 @@ if (this.podQueimado.y >= tamanho.height){
   this.podQueimado.setX(this.getRandomX())
 }
   
+if(this.targetHit=true){
+  this.magrao.setText(`peguei o pod`)
+}
+
 
     const {left,right} = this.cursor
 
