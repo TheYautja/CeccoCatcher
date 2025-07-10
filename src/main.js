@@ -6,6 +6,11 @@ const tamanho = {
   height:700,
 }
 
+const hitboxPorco = {
+  width: 100,
+  height: 75,
+}
+
 const hitboxPod = {
   width:50,
   height:90,
@@ -42,7 +47,7 @@ class gameScene extends Phaser.Scene{
     this.load.image("fundo","/assets/Guarita.jpg")
     this.load.image("player","/assets/bustoDoCecco.png");
     this.load.image("pod","/assets/podpequeno.png");
-    this.load.image("podQueimado","/assets/porco.jpg");
+    this.load.image("podQueimado","/assets/pngegg,png");
   }
 
 
