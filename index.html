@@ -7,13 +7,20 @@
     <title>Pega-Pod</title>
   </head>
   <body>
-    <header>
-      <div  id="placa">
-      <p>Pega-Pod</p>
-    </div>
-    </header>
     <main>
       <div id="telaDoJogo"></div>
+      <div id="inicio" class="tela">
+        <h1>Pega Pod</h1>
+        <p>pegue 30 pods enquanto evita pegar os porcos</p>
+        <p>boa sorte</p>
+        <p>(se o jogo travar aperte F5, não sei como arrumar)</p>
+        <button id="inicioBTN"><p>iniciar</p></button>
+      </div>
+      <div id="fim" class="tela">
+        <h1>Brutal<span id="ganhaPerde"></span></h1>
+        <p>It's over pro Cecconello</p>
+        <button id="reload" onclick="window.location.reload();"><p>Jogar Novamente</p></button>
+      </div>
     </main>
     <script type="module" src="/src/main.js"></script>
   </body>

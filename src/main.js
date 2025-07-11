@@ -26,6 +26,12 @@ const hitboxCecco = {
 const speedDown = 600
 
 
+const inicio = document.querySelector("#inicio")
+const inicioBTN = document.querySelector("#inicioBTN")
+const fim = document.querySelector("#fim")
+const ganhaPerde = document.querySelector("ganhaPerde")
+const reload = document.querySelector("reload")
+
 
 class gameScene extends Phaser.Scene{
   constructor(){
@@ -47,7 +53,7 @@ class gameScene extends Phaser.Scene{
     this.load.image("fundo","/assets/Guarita.jpg")
     this.load.image("player","/assets/bustoDoCecco.png");
     this.load.image("pod","/assets/podpequeno.png");
-    this.load.image("podQueimado","/assets/pngegg.png");
+    this.load.image("podQueimado","/assets/porco3.png");
   }
 
 
@@ -56,13 +62,13 @@ class gameScene extends Phaser.Scene{
 
   create(){
 
+    this.scene.pause("scene-game")
+
 //fundo
   this.add.image(0,0,"fundo").setOrigin(0,0);
 
 //player
   this.player = this.physics.add.image(0,tamanho.height-100,"player").setOrigin(0,0);
-  /* this.player.setSize(hitboxCecco.width, hitboxCecco.height);
-  this.player.setOffset(); */
   this.player.setImmovable(true);
   this.player.body.allowGravity = false
   this.player.setCollideWorldBounds(true);
@@ -70,7 +76,7 @@ class gameScene extends Phaser.Scene{
   this.player.width / 10, this.player.height - this.player.height / 10);
 
 //pod 
-  this.target = this.physics.add.image(100, 100, "pod").setOrigin(0, 0);
+  this.target = this.physics.add.image(this.getRandomX(), 100, "pod").setOrigin(0, 0);
   this.target.setSize(hitboxPod.width, hitboxPod.height);
   this.target.setOffset(0, 0);
   this.target.setMaxVelocity(speedDown);
@@ -79,11 +85,12 @@ class gameScene extends Phaser.Scene{
 
 
 //pod queimado
-  this.podQueimado = this.physics.add.image(100, 100, "podQueimado").setOrigin(0, 0);
-  this.podQueimado.setSize(hitboxPod.width, hitboxPod.height);
+  this.podQueimado = this.physics.add.image(this.getRandomX(), 100, "podQueimado").setOrigin(0, 0);
+  this.podQueimado.setSize(hitboxPorco.width, hitboxPorco.height);
   this.podQueimado.setOffset(0, 0);
   this.podQueimado.setMaxVelocity(speedDown);
   this.physics.add.overlap(this.podQueimado, this.player, this.perder, null, this)
+  this.podQueimado.setScale(2);
 
 
 
@@ -124,9 +131,6 @@ if (this.podQueimado.y >= tamanho.height){
   this.podQueimado.setX(this.getRandomX())
 }
   
-if(this.targetHit=true){
-  this.magrao.setText(`peguei o pod`)
-}
 
 
     const {left,right} = this.cursor
@@ -161,15 +165,20 @@ targetHit (){
   this.textPods.setText(`Pods: ${this.points}`)
 }
 
+
 perder (){
+  this.sys.game.destroy(true)
   this.podQueimado.setY(0);
-  this.target.setX(this.getRandomX());
+  this.podQueimado.setX(this.getRandomX());
   this.points=0;
   this.textParceria.setText(`perdeu bixo`)
-}
+  fim.style.display="flex"
 
 }
 
+
+
+}
 
 
 const config = {
@@ -187,3 +196,9 @@ const config = {
 
 
 const game = new Phaser.Game(config)
+
+inicioBTN.addEventListener ("click", ()=>{
+  inicio.style.display="none"
+  game.scene.resume("scene-game")
+} )
+
